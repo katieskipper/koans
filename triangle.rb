@@ -14,6 +14,22 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a == 0 or b == 0 or c == 0
+    raise TriangleError, "Triangle sides must not be 0"
+  end
+
+  if a + c == b or a + b == c or c + b == a 
+    raise TriangleError, "2 sides can't equal 1"
+  end
+  
+  unless a + b > c 
+    raise TriangleError, "2 sides must be greater than 1"
+  end
+
+  if a < 0 or b < 0 or c < 0
+    raise TriangleError, "Can't have less than zero"
+  end
+    
   if a == b && b == c
     :equilateral
   elsif a != b && a != c && b != c
